@@ -1,0 +1,29 @@
+aid: vwo
+url: https://raw.githubusercontent.com/api-evangelist/vwo/refs/heads/main/apis.yml
+name: VWO
+x-type: company
+description: >-
+  VWO is a visual experimentation, personalization, and conversion optimization platform offering A/B, multivariate, server-side, and feature-flag testing across web and mobile.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - A/B Testing
+  - Experimentation
+  - CRO
+  - Personalization
+  - Analytics
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://vwo.com/
+  - type: Plans
+    url: plans/vwo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/vwo-rate-limits.yml
+  - type: FinOps
+    url: finops/vwo-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
