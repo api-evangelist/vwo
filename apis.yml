@@ -42,6 +42,18 @@ common:
     url: rate-limits/vwo-rate-limits.yml
   - type: FinOps
     url: finops/vwo-finops.yml
+  - type: Integrations
+    url: https://vwo.com/integrations/
+integrations:
+  - name: Website UX Audit
+  - name: A/B Test Significance Calculator
+  - name: AI-Powered Heatmap Generator
+  - name: A/B Test Duration Calculator
+  - name: Cart Abandonment Calculator
+  - name: Push Notification ROI Calculator
+  - name: CRO Experimentation Checklist
+  - name: Affiliate Partners
+  - name: A/B Test Sample Size Calculator
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
