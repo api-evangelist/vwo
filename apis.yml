@@ -1,7 +1,7 @@
 aid: vwo
 url: https://raw.githubusercontent.com/api-evangelist/vwo/refs/heads/main/apis.yml
 name: VWO
-x-type: company
+kind: company
 description: >-
   VWO is a digital experience optimization platform offering A/B testing, personalization, feature management, behavior analytics, and insights.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
