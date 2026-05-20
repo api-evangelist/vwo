@@ -32,6 +32,10 @@ apis:
       - type: Developers
         url: https://developers.vwo.com/
 common:
+  - type: GitHubOrganization
+    url: https://github.com/wingify
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/vwo
   - type: Website
     url: https://vwo.com/
   - type: Documentation
