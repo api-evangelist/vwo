@@ -4,7 +4,7 @@ name: VWO
 kind: company
 description: >-
   VWO is a digital experience optimization platform offering A/B testing, personalization, feature management, behavior analytics, and insights.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Experimentation
   - AB Testing
@@ -19,7 +19,7 @@ apis:
     name: VWO Data API
     description: >-
       VWO Data API exposes account data, campaign and goal configuration, reporting, and segmentation across the VWO experimentation platform.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developers.vwo.com/
     baseURL: https://app.vwo.com/api/v2
     tags:
