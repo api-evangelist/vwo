@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/vwo-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: tokenAuth
+  type: apiKey
+  in: header
+  parameter: token
+  description: |-
+    VWO API token sent in the `token` request header. Generate from
+    VWO account settings.
+  sources:
+  - openapi/vwo-openapi.yml

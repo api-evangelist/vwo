@@ -32,6 +32,12 @@ apis:
       - type: Developers
         url: https://developers.vwo.com/
 common:
+  - type: VulnerabilityDisclosure
+    url: security/vwo-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/vwo-domain-security.yml
+  - type: Authentication
+    url: authentication/vwo-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/wingify
   - type: LinkedIn
@@ -48,6 +54,8 @@ common:
     url: finops/vwo-finops.yml
   - type: Integrations
     url: https://vwo.com/integrations/
+  - url: https://vwo.com/blog/feed/
+    type: Blog
 integrations:
   - name: Website UX Audit
   - name: A/B Test Significance Calculator
