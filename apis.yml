@@ -32,6 +32,8 @@ apis:
       - type: Developers
         url: https://developers.vwo.com/
 common:
+  - type: AgenticAccess
+    url: agentic-access/vwo-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/vwo-vulnerability-disclosure.yml
   - type: DomainSecurity
