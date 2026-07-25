@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: VWO Data Campaigns Websites API
+  version: 2.0.0
+  summary: Programmatic access to VWO accounts, campaigns, websites, and reporting data.
+  description: 'The VWO Data API exposes account data, campaign and goal configuration, reporting,
+
+    and feature flag management across the VWO experimentation platform.
+
+
+    Documentation: https://developers.vwo.com/
+
+    '
+  contact:
+    name: VWO Developer Hub
+    url: https://developers.vwo.com/
+servers:
+- url: https://app.vwo.com/api/v2
+  description: VWO Data API v2
+security:
+- tokenAuth: []
+tags:
+- name: Websites
+  description: Websites configured under an account.
+paths:
+  /accounts/{account_id}/websites:
+    parameters:
+    - $ref: '#/components/parameters/AccountID'
+    get:
+      tags:
+      - Websites
+      summary: List websites with attributes
+      operationId: listWebsites
+      responses:
+        '200':
+          description: Website list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Website'
+  /accounts/{account_id}/websites/{website_id}:
+    parameters:
+    - $ref: '#/components/parameters/AccountID'
+    - name: website_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      tags:
+      - Websites
+      summary: Get website details
+      operationId: getWebsite
+      responses:
+        '200':
+          description: Website details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _data:
+                    $ref: '#/components/schemas/Website'
+components:
+  schemas:
+    Website:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        url:
+          type: string
+        timezone:
+          type: string
+  parameters:
+    AccountID:
+      name: account_id
+      in: path
+      required: true
+      description: Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID.
+      schema:
+        type: string
+        default: current
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: token
+      description: 'VWO API token sent in the `token` request header. Generate from
+
+        VWO account settings.
+
+        '

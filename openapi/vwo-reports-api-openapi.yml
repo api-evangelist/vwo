@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: VWO Data Campaigns Reports API
+  version: 2.0.0
+  summary: Programmatic access to VWO accounts, campaigns, websites, and reporting data.
+  description: 'The VWO Data API exposes account data, campaign and goal configuration, reporting,
+
+    and feature flag management across the VWO experimentation platform.
+
+
+    Documentation: https://developers.vwo.com/
+
+    '
+  contact:
+    name: VWO Developer Hub
+    url: https://developers.vwo.com/
+servers:
+- url: https://app.vwo.com/api/v2
+  description: VWO Data API v2
+security:
+- tokenAuth: []
+tags:
+- name: Reports
+  description: Metric and campaign reports.
+paths:
+  /accounts/{account_id}/insights/reports:
+    parameters:
+    - $ref: '#/components/parameters/AccountID'
+    get:
+      tags:
+      - Reports
+      summary: Get all metric reports
+      description: Retrieves insights metrics for a specific account, with pagination and filtering.
+      operationId: getMetricReports
+      parameters:
+      - in: query
+        name: page
+        schema:
+          type: integer
+          default: 1
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          default: 50
+      - in: query
+        name: status
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Reports
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+components:
+  parameters:
+    AccountID:
+      name: account_id
+      in: path
+      required: true
+      description: Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID.
+      schema:
+        type: string
+        default: current
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: token
+      description: 'VWO API token sent in the `token` request header. Generate from
+
+        VWO account settings.
+
+        '

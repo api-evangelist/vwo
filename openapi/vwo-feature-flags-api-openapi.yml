@@ -1,0 +1,164 @@
+openapi: 3.1.0
+info:
+  title: VWO Data Campaigns Feature Flags API
+  version: 2.0.0
+  summary: Programmatic access to VWO accounts, campaigns, websites, and reporting data.
+  description: 'The VWO Data API exposes account data, campaign and goal configuration, reporting,
+
+    and feature flag management across the VWO experimentation platform.
+
+
+    Documentation: https://developers.vwo.com/
+
+    '
+  contact:
+    name: VWO Developer Hub
+    url: https://developers.vwo.com/
+servers:
+- url: https://app.vwo.com/api/v2
+  description: VWO Data API v2
+security:
+- tokenAuth: []
+tags:
+- name: Feature Flags
+  description: Feature management (FME) feature flags and rules.
+paths:
+  /accounts/{account_id}/fme/feature-flags:
+    parameters:
+    - $ref: '#/components/parameters/AccountID'
+    get:
+      tags:
+      - Feature Flags
+      summary: Get all feature flags of a workspace
+      operationId: listFeatureFlags
+      responses:
+        '200':
+          description: Feature flag list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FeatureFlag'
+    post:
+      tags:
+      - Feature Flags
+      summary: Create a feature flag
+      operationId: createFeatureFlag
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeatureFlag'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _data:
+                    $ref: '#/components/schemas/FeatureFlag'
+  /accounts/{account_id}/fme/feature-flags/{feature_flag_id}:
+    parameters:
+    - $ref: '#/components/parameters/AccountID'
+    - name: feature_flag_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      tags:
+      - Feature Flags
+      summary: Get details of a specific feature flag
+      operationId: getFeatureFlag
+      responses:
+        '200':
+          description: Feature flag
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _data:
+                    $ref: '#/components/schemas/FeatureFlag'
+    patch:
+      tags:
+      - Feature Flags
+      summary: Update a feature flag
+      operationId: updateFeatureFlag
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+    delete:
+      tags:
+      - Feature Flags
+      summary: Delete a feature flag
+      operationId: deleteFeatureFlag
+      responses:
+        '204':
+          description: Deleted
+components:
+  schemas:
+    FeatureFlag:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        key:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          examples:
+          - true
+          - false
+        variables:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              type:
+                type: string
+              value: {}
+  parameters:
+    AccountID:
+      name: account_id
+      in: path
+      required: true
+      description: Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID.
+      schema:
+        type: string
+        default: current
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: token
+      description: 'VWO API token sent in the `token` request header. Generate from
+
+        VWO account settings.
+
+        '
