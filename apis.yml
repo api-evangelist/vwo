@@ -4,7 +4,20 @@ name: VWO
 kind: company
 description: >-
   VWO is a digital experience optimization platform offering A/B testing, personalization, feature management, behavior analytics, and insights.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/vwo.png
 tags:
   - Experimentation
   - AB Testing
@@ -15,22 +28,63 @@ created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-  - aid: vwo:vwo-data-api
-    name: VWO Data API
-    description: >-
-      VWO Data API exposes account data, campaign and goal configuration, reporting, and segmentation across the VWO experimentation platform.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://developers.vwo.com/
-    baseURL: https://app.vwo.com/api/v2
-    tags:
-      - Experimentation
-      - Analytics
-      - REST
-    properties:
-      - type: Documentation
-        url: https://developers.vwo.com/
-      - type: Developers
-        url: https://developers.vwo.com/
+- aid: vwo:vwo-data-api
+  name: VWO Data API
+  description: >-
+    VWO Data API exposes account data, campaign and goal configuration, reporting, and segmentation across
+    the VWO experimentation platform.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.vwo.com/
+  baseURL: https://app.vwo.com/api/v2
+  tags:
+  - Experimentation
+  - Analytics
+  - REST
+  properties:
+  - type: Documentation
+    url: https://developers.vwo.com/
+  - type: Developers
+    url: https://developers.vwo.com/
+- aid: vwo:vwo-campaigns-api
+  name: VWO Campaigns API
+  description: A/B, split, and personalization campaigns.
+  humanURL: https://developers.vwo.com/
+  baseURL: https://app.vwo.com/api/v2
+  tags:
+  - Campaigns
+  properties:
+  - type: OpenAPI
+    url: openapi/vwo-campaigns-api-openapi.yml
+- aid: vwo:vwo-feature-flags-api
+  name: VWO Feature Flags API
+  description: Feature management (FME) feature flags and rules.
+  humanURL: https://developers.vwo.com/
+  baseURL: https://app.vwo.com/api/v2
+  tags:
+  - Feature Flags
+  properties:
+  - type: OpenAPI
+    url: openapi/vwo-feature-flags-api-openapi.yml
+- aid: vwo:vwo-reports-api
+  name: VWO Reports API
+  description: Metric and campaign reports.
+  humanURL: https://developers.vwo.com/
+  baseURL: https://app.vwo.com/api/v2
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/vwo-reports-api-openapi.yml
+- aid: vwo:vwo-websites-api
+  name: VWO Websites API
+  description: Websites configured under an account.
+  humanURL: https://developers.vwo.com/
+  baseURL: https://app.vwo.com/api/v2
+  tags:
+  - Websites
+  properties:
+  - type: OpenAPI
+    url: openapi/vwo-websites-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/vwo-agentic-access.yml
