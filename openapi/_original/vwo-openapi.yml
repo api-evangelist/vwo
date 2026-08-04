@@ -1,0 +1,372 @@
+openapi: 3.1.0
+info:
+  title: VWO Data API
+  version: "2.0.0"
+  summary: Programmatic access to VWO accounts, campaigns, websites, and reporting data.
+  description: |
+    The VWO Data API exposes account data, campaign and goal configuration, reporting,
+    and feature flag management across the VWO experimentation platform.
+
+    Documentation: https://developers.vwo.com/
+  contact:
+    name: VWO Developer Hub
+    url: https://developers.vwo.com/
+servers:
+  - url: https://app.vwo.com/api/v2
+    description: VWO Data API v2
+security:
+  - tokenAuth: []
+tags:
+  - name: Accounts
+    description: Account / workspace metadata.
+  - name: Campaigns
+    description: A/B, split, and personalization campaigns.
+  - name: Websites
+    description: Websites configured under an account.
+  - name: Reports
+    description: Metric and campaign reports.
+  - name: Feature Flags
+    description: Feature management (FME) feature flags and rules.
+paths:
+  /accounts/{account_id}/campaigns:
+    parameters:
+      - $ref: '#/components/parameters/AccountID'
+    get:
+      tags: [Campaigns]
+      summary: List campaigns
+      operationId: listCampaigns
+      responses:
+        "200":
+          description: Campaign list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignList'
+        "401": { $ref: '#/components/responses/Unauthorized' }
+    post:
+      tags: [Campaigns]
+      summary: Create a campaign
+      operationId: createCampaign
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignCreate'
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignEnvelope'
+  /accounts/{account_id}/campaigns/{campaign_id}:
+    parameters:
+      - $ref: '#/components/parameters/AccountID'
+      - $ref: '#/components/parameters/CampaignID'
+    get:
+      tags: [Campaigns]
+      summary: Get campaign details
+      operationId: getCampaign
+      responses:
+        "200":
+          description: Campaign details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignEnvelope'
+    patch:
+      tags: [Campaigns]
+      summary: Update a campaign
+      operationId: updateCampaign
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignEnvelope'
+  /accounts/{account_id}/websites:
+    parameters:
+      - $ref: '#/components/parameters/AccountID'
+    get:
+      tags: [Websites]
+      summary: List websites with attributes
+      operationId: listWebsites
+      responses:
+        "200":
+          description: Website list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Website'
+  /accounts/{account_id}/websites/{website_id}:
+    parameters:
+      - $ref: '#/components/parameters/AccountID'
+      - name: website_id
+        in: path
+        required: true
+        schema: { type: integer }
+    get:
+      tags: [Websites]
+      summary: Get website details
+      operationId: getWebsite
+      responses:
+        "200":
+          description: Website details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _data:
+                    $ref: '#/components/schemas/Website'
+  /accounts/{account_id}/insights/reports:
+    parameters:
+      - $ref: '#/components/parameters/AccountID'
+    get:
+      tags: [Reports]
+      summary: Get all metric reports
+      description: Retrieves insights metrics for a specific account, with pagination and filtering.
+      operationId: getMetricReports
+      parameters:
+        - in: query
+          name: page
+          schema: { type: integer, default: 1 }
+        - in: query
+          name: limit
+          schema: { type: integer, default: 50 }
+        - in: query
+          name: status
+          schema: { type: string }
+      responses:
+        "200":
+          description: Reports
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /accounts/{account_id}/fme/feature-flags:
+    parameters:
+      - $ref: '#/components/parameters/AccountID'
+    get:
+      tags: [Feature Flags]
+      summary: Get all feature flags of a workspace
+      operationId: listFeatureFlags
+      responses:
+        "200":
+          description: Feature flag list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FeatureFlag'
+    post:
+      tags: [Feature Flags]
+      summary: Create a feature flag
+      operationId: createFeatureFlag
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeatureFlag'
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _data:
+                    $ref: '#/components/schemas/FeatureFlag'
+  /accounts/{account_id}/fme/feature-flags/{feature_flag_id}:
+    parameters:
+      - $ref: '#/components/parameters/AccountID'
+      - name: feature_flag_id
+        in: path
+        required: true
+        schema: { type: integer }
+    get:
+      tags: [Feature Flags]
+      summary: Get details of a specific feature flag
+      operationId: getFeatureFlag
+      responses:
+        "200":
+          description: Feature flag
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _data:
+                    $ref: '#/components/schemas/FeatureFlag'
+    patch:
+      tags: [Feature Flags]
+      summary: Update a feature flag
+      operationId: updateFeatureFlag
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+    delete:
+      tags: [Feature Flags]
+      summary: Delete a feature flag
+      operationId: deleteFeatureFlag
+      responses:
+        "204": { description: Deleted }
+components:
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: token
+      description: |
+        VWO API token sent in the `token` request header. Generate from
+        VWO account settings.
+  parameters:
+    AccountID:
+      name: account_id
+      in: path
+      required: true
+      description: Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID.
+      schema:
+        type: string
+        default: current
+    CampaignID:
+      name: campaign_id
+      in: path
+      required: true
+      schema: { type: integer }
+  responses:
+    Unauthorized:
+      description: Missing or invalid token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    CampaignCreate:
+      type: object
+      required: [type]
+      properties:
+        type:
+          type: string
+          examples: [ab, split, personalize, mvt]
+        urls:
+          type: array
+          items:
+            type: object
+            properties:
+              type: { type: string, examples: [url, regex] }
+              value: { type: string }
+        primaryUrl: { type: string }
+        goals:
+          type: array
+          items:
+            type: object
+            properties:
+              name: { type: string }
+              type:
+                type: string
+                examples: [visitPage, customConversion, revenue]
+              urls:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type: { type: string }
+                    value: { type: string }
+        globalCode:
+          type: object
+          additionalProperties: true
+    CampaignEnvelope:
+      type: object
+      properties:
+        _data:
+          type: object
+          properties:
+            id: { type: integer }
+            status:
+              type: string
+              examples: [NOT_STARTED, RUNNING, PAUSED, ENDED]
+            name: { type: string }
+            type: { type: string }
+            goals:
+              type: array
+              items:
+                type: object
+                properties:
+                  id: { type: integer }
+                  name: { type: string }
+    CampaignList:
+      type: object
+      properties:
+        _data:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: integer }
+              name: { type: string }
+              status: { type: string }
+              type: { type: string }
+    Website:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        url: { type: string }
+        timezone: { type: string }
+    FeatureFlag:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        key: { type: string }
+        description: { type: string }
+        status:
+          type: string
+          examples: [ON, OFF]
+        variables:
+          type: array
+          items:
+            type: object
+            properties:
+              key: { type: string }
+              type: { type: string }
+              value: {}
+    Error:
+      type: object
+      properties:
+        message: { type: string }
+        code: { type: string }
