@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VWO Data Campaigns Feature Flags API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Feature Flags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all feature flags of a workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.vwo.com/api/v2/accounts/:account_id/fme/feature-flags",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+              }
+            ]
+          },
+          "docs": "Get all feature flags of a workspace"
+        },
+        {
+          "info": {
+            "name": "Create a feature flag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.vwo.com/api/v2/accounts/:account_id/fme/feature-flags",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a feature flag"
+        },
+        {
+          "info": {
+            "name": "Get details of a specific feature flag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.vwo.com/api/v2/accounts/:account_id/fme/feature-flags/:feature_flag_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+              },
+              {
+                "name": "feature_flag_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get details of a specific feature flag"
+        },
+        {
+          "info": {
+            "name": "Update a feature flag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.vwo.com/api/v2/accounts/:account_id/fme/feature-flags/:feature_flag_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+              },
+              {
+                "name": "feature_flag_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a feature flag"
+        },
+        {
+          "info": {
+            "name": "Delete a feature flag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.vwo.com/api/v2/accounts/:account_id/fme/feature-flags/:feature_flag_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+              },
+              {
+                "name": "feature_flag_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a feature flag"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

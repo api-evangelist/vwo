@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "VWO Data Campaigns Websites API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Websites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List websites with attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.vwo.com/api/v2/accounts/:account_id/websites",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+              }
+            ]
+          },
+          "docs": "List websites with attributes"
+        },
+        {
+          "info": {
+            "name": "Get website details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.vwo.com/api/v2/accounts/:account_id/websites/:website_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+              },
+              {
+                "name": "website_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get website details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

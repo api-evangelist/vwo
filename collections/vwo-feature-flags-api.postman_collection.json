@@ -1,0 +1,614 @@
+{
+  "item": [
+    {
+      "id": "bf5f0e41-e8eb-47d7-bc35-cd66fa34a8c2",
+      "name": "Feature Flags",
+      "description": {
+        "content": "Feature management (FME) feature flags and rules.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0e8293aa-30fc-4c04-8230-284fd0ac038f",
+          "name": "Get all feature flags of a workspace",
+          "request": {
+            "name": "Get all feature flags of a workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id",
+                "fme",
+                "feature-flags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "current",
+                  "key": "account_id",
+                  "description": "(Required) Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "721e2cdf-62db-43e9-b9f3-9c6fef04479d",
+              "name": "Feature flag list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "fme",
+                    "feature-flags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "current",
+                      "key": "account_id",
+                      "description": "(Required) Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_data\": [\n    {\n      \"id\": 2138,\n      \"name\": \"string\",\n      \"key\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"variables\": [\n        {\n          \"key\": \"string\",\n          \"type\": \"string\",\n          \"value\": \"\"\n        },\n        {\n          \"key\": \"string\",\n          \"type\": \"string\",\n          \"value\": \"\"\n        }\n      ]\n    },\n    {\n      \"id\": 5860,\n      \"name\": \"string\",\n      \"key\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"variables\": [\n        {\n          \"key\": \"string\",\n          \"type\": \"string\",\n          \"value\": \"\"\n        },\n        {\n          \"key\": \"string\",\n          \"type\": \"string\",\n          \"value\": \"\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "584a3295-9c56-4568-b044-d863c3fa9d4b",
+          "name": "Create a feature flag",
+          "request": {
+            "name": "Create a feature flag",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id",
+                "fme",
+                "feature-flags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "current",
+                  "key": "account_id",
+                  "description": "(Required) Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"description\": \"<string>\",\n  \"status\": \"<string>\",\n  \"variables\": [\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"value\": \"\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "94316b5a-b9c0-4b28-8a87-75ad07a80b85",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "fme",
+                    "feature-flags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "current",
+                      "key": "account_id",
+                      "description": "(Required) Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"description\": \"<string>\",\n  \"status\": \"<string>\",\n  \"variables\": [\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"value\": \"\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"value\": \"\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_data\": {\n    \"id\": 5072,\n    \"name\": \"string\",\n    \"key\": \"string\",\n    \"description\": \"string\",\n    \"status\": \"string\",\n    \"variables\": [\n      {\n        \"key\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"\"\n      },\n      {\n        \"key\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "655a13c2-dff2-4c57-8a19-9abea94a0c83",
+          "name": "Get details of a specific feature flag",
+          "request": {
+            "name": "Get details of a specific feature flag",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id",
+                "fme",
+                "feature-flags",
+                ":feature_flag_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "current",
+                  "key": "account_id",
+                  "description": "(Required) Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "feature_flag_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e106d68d-9add-477a-bdb9-9381b0e6a7a1",
+              "name": "Feature flag",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "fme",
+                    "feature-flags",
+                    ":feature_flag_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "current",
+                      "key": "account_id",
+                      "description": "(Required) Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "feature_flag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_data\": {\n    \"id\": 5072,\n    \"name\": \"string\",\n    \"key\": \"string\",\n    \"description\": \"string\",\n    \"status\": \"string\",\n    \"variables\": [\n      {\n        \"key\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"\"\n      },\n      {\n        \"key\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "625fc641-c371-4c5a-b7e2-6fa992360a8c",
+          "name": "Update a feature flag",
+          "request": {
+            "name": "Update a feature flag",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id",
+                "fme",
+                "feature-flags",
+                ":feature_flag_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "current",
+                  "key": "account_id",
+                  "description": "(Required) Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "feature_flag_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27e906c4-7554-4c19-9844-5e1e66dfdceb",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "fme",
+                    "feature-flags",
+                    ":feature_flag_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "current",
+                      "key": "account_id",
+                      "description": "(Required) Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "feature_flag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": false,\n  \"key_1\": 8523,\n  \"key_2\": 2466.66926923113\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": false,\n  \"key_1\": 8523,\n  \"key_2\": 2466.66926923113\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8fed46d1-5797-4b3e-8398-948c2d05a14c",
+          "name": "Delete a feature flag",
+          "request": {
+            "name": "Delete a feature flag",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id",
+                "fme",
+                "feature-flags",
+                ":feature_flag_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "current",
+                  "key": "account_id",
+                  "description": "(Required) Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "feature_flag_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7863cd4-4915-478c-81de-4a809117ad28",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id",
+                    "fme",
+                    "feature-flags",
+                    ":feature_flag_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "current",
+                      "key": "account_id",
+                      "description": "(Required) Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "feature_flag_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.vwo.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "dd51034f-f1ba-4ce7-8484-a32bdc9dec20",
+    "name": "VWO Data Campaigns Feature Flags API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The VWO Data API exposes account data, campaign and goal configuration, reporting,\nand feature flag management across the VWO experimentation platform.\n\nDocumentation: https://developers.vwo.com/\n\n\nContact Support:\n Name: VWO Developer Hub",
+      "type": "text/plain"
+    }
+  }
+}
