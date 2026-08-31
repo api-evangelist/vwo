@@ -32,7 +32,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/vwo.png
 tags:
   - Experimentation
-  - A/B Testing
+  - AB Testing
   - Personalization
   - Conversion Optimization
   - Feature Flags
