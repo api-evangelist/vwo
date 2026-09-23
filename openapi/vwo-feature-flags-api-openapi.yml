@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: VWO Data Campaigns Feature Flags API
+  title: VWO Data Feature Flags API
   version: 2.0.0
   summary: Programmatic access to VWO accounts, campaigns, websites, and reporting data.
   description: 'The VWO Data API exposes account data, campaign and goal configuration, reporting,
@@ -8,9 +8,7 @@ info:
     and feature flag management across the VWO experimentation platform.
 
 
-    Documentation: https://developers.vwo.com/
-
-    '
+    Documentation: https://developers.vwo.com/'
   contact:
     name: VWO Developer Hub
     url: https://developers.vwo.com/
@@ -116,6 +114,15 @@ paths:
         '204':
           description: Deleted
 components:
+  parameters:
+    AccountID:
+      name: account_id
+      in: path
+      required: true
+      description: Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID.
+      schema:
+        type: string
+        default: current
   schemas:
     FeatureFlag:
       type: object
@@ -143,15 +150,6 @@ components:
               type:
                 type: string
               value: {}
-  parameters:
-    AccountID:
-      name: account_id
-      in: path
-      required: true
-      description: Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID.
-      schema:
-        type: string
-        default: current
   securitySchemes:
     tokenAuth:
       type: apiKey

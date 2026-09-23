@@ -1,0 +1,29 @@
+# Front Door AI Index — vwo — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: vwo
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: vwo.com
+  final_host: wingify.com
+  ownership: own
+  owner: vwo
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 22
+  host_score: 22
+  density: 8.62
+  words: 2551
+  tiers:
+    agentic: 3
+    core: 19
+    model: 0
+  ambiguous: 6
+  top_terms:
+    AI: 19
+    agentic: 3
+    intelligence: 3
+    predictive: 2
+    agent: 1
