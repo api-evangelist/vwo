@@ -105,6 +105,9 @@ apis:
   - type: OpenAPI
     url: openapi/vwo-websites-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/vwo-capability-edges.yml
+    name: VWO Business Capability Map
   - type: AgenticAccess
     url: agentic-access/vwo-agentic-access.yml
   - type: VulnerabilityDisclosure
