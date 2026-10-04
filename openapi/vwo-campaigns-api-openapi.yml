@@ -92,66 +92,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CampaignEnvelope'
 components:
-  parameters:
-    AccountID:
-      name: account_id
-      in: path
-      required: true
-      description: Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID.
-      schema:
-        type: string
-        default: current
-    CampaignID:
-      name: campaign_id
-      in: path
-      required: true
-      schema:
-        type: integer
   schemas:
-    CampaignList:
-      type: object
-      properties:
-        _data:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-              name:
-                type: string
-              status:
-                type: string
-              type:
-                type: string
-    CampaignEnvelope:
-      type: object
-      properties:
-        _data:
-          type: object
-          properties:
-            id:
-              type: integer
-            status:
-              type: string
-              examples:
-              - NOT_STARTED
-              - RUNNING
-              - PAUSED
-              - ENDED
-            name:
-              type: string
-            type:
-              type: string
-            goals:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  name:
-                    type: string
     CampaignCreate:
       type: object
       required:
@@ -203,6 +144,50 @@ components:
         globalCode:
           type: object
           additionalProperties: true
+    CampaignEnvelope:
+      type: object
+      properties:
+        _data:
+          type: object
+          properties:
+            id:
+              type: integer
+            status:
+              type: string
+              examples:
+              - NOT_STARTED
+              - RUNNING
+              - PAUSED
+              - ENDED
+            name:
+              type: string
+            type:
+              type: string
+            goals:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+    CampaignList:
+      type: object
+      properties:
+        _data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              status:
+                type: string
+              type:
+                type: string
     Error:
       type: object
       properties:
@@ -210,6 +195,21 @@ components:
           type: string
         code:
           type: string
+  parameters:
+    CampaignID:
+      name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    AccountID:
+      name: account_id
+      in: path
+      required: true
+      description: Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID.
+      schema:
+        type: string
+        default: current
   responses:
     Unauthorized:
       description: Missing or invalid token
