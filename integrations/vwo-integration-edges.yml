@@ -53,8 +53,25 @@ edges:
       - upsert
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
+- partner_name: Contentful (own)
+  partner: contentful
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.contentful.com/marketplace/vwo-feature-management-and-experimentation/
+  mirror_of: contentful/integrations/contentful-integration-edges.yml
+  apps:
+  - VWO - Feature Management & Experimentation
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
 method: searched
 checked:
+- contentful/integrations/contentful-integration-edges.yml
 - https://hightouch.com/docs/destinations/vwo
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-vwo-cloud
 source:
