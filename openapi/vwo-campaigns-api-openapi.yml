@@ -144,6 +144,29 @@ components:
         globalCode:
           type: object
           additionalProperties: true
+    CampaignList:
+      type: object
+      properties:
+        _data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              status:
+                type: string
+              type:
+                type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: string
     CampaignEnvelope:
       type: object
       properties:
@@ -172,36 +195,14 @@ components:
                     type: integer
                   name:
                     type: string
-    CampaignList:
-      type: object
-      properties:
-        _data:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-              name:
-                type: string
-              status:
-                type: string
-              type:
-                type: string
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
-    CampaignID:
-      name: campaign_id
-      in: path
-      required: true
-      schema:
-        type: integer
     AccountID:
       name: account_id
       in: path
@@ -210,13 +211,12 @@ components:
       schema:
         type: string
         default: current
-  responses:
-    Unauthorized:
-      description: Missing or invalid token
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    CampaignID:
+      name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey

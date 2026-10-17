@@ -114,15 +114,6 @@ paths:
         '204':
           description: Deleted
 components:
-  parameters:
-    AccountID:
-      name: account_id
-      in: path
-      required: true
-      description: Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID.
-      schema:
-        type: string
-        default: current
   schemas:
     FeatureFlag:
       type: object
@@ -150,6 +141,15 @@ components:
               type:
                 type: string
               value: {}
+  parameters:
+    AccountID:
+      name: account_id
+      in: path
+      required: true
+      description: Use the literal `current` keyword to refer to the Main Workspace, or the integer Workspace ID.
+      schema:
+        type: string
+        default: current
   securitySchemes:
     tokenAuth:
       type: apiKey
