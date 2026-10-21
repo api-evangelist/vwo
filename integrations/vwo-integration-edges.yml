@@ -53,22 +53,6 @@ edges:
       - upsert
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
-- partner_name: Contentful (own)
-  partner: contentful
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.contentful.com/marketplace/vwo-feature-management-and-experimentation/
-  mirror_of: contentful/integrations/contentful-integration-edges.yml
-  apps:
-  - VWO - Feature Management & Experimentation
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
 - partner_name: Airbyte
   partner: airbyte
   partner_match: aggregator
@@ -125,6 +109,22 @@ edges:
     builder: Fivetran
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: Contentful (own)
+  partner: contentful
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.contentful.com/marketplace/vwo-feature-management-and-experimentation/
+  mirror_of: contentful/integrations/contentful-integration-edges.yml
+  apps:
+  - VWO - Feature Management & Experimentation
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
 - partner_name: Slack (own)
   partner: slack
   partner_match: mirror
@@ -142,6 +142,23 @@ edges:
   detected: '2026-10-18'
   detected_by: mirror-platform-listings.py
   category: Slack app
+- partner_name: HubSpot (own)
+  partner: hubspot
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/vwo
+  mirror_of: hubspot/integrations/hubspot-integration-edges.yml
+  apps:
+  - VWO (Wingify)
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: MARKETING_ANALYTICS
 method: searched
 checked:
 - contentful/integrations/contentful-integration-edges.yml
@@ -152,6 +169,7 @@ checked:
 - https://hightouch.com/docs/destinations/vwo
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-vwo-cloud
 - slack/integrations/slack-integration-edges.yml
+- hubspot/integrations/hubspot-integration-edges.yml
 source:
 - https://hightouch.com/docs/destinations/vwo
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-vwo-cloud

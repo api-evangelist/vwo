@@ -27,18 +27,6 @@
   relationship: connector-coverage
   status: not-a-workflow
   arazzo: null
-- slug: vwo-contentful-own
-  label: Contentful (own)
-  partner: contentful
-  partner_name: Contentful (own)
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.contentful.com/marketplace/vwo-feature-management-and-experimentation/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: vwo-airbyte
   label: Airbyte
   partner: airbyte
@@ -95,6 +83,18 @@
     builder: Fivetran
   status: not-a-workflow
   arazzo: null
+- slug: vwo-contentful-own
+  label: Contentful (own)
+  partner: contentful
+  partner_name: Contentful (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.contentful.com/marketplace/vwo-feature-management-and-experimentation/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
 - slug: vwo-slack-own
   label: Slack (own)
   partner: slack
@@ -104,6 +104,19 @@
   marketplace: own
   channel: partner-built
   evidence: https://slack.com/marketplace/A039E3XEZBP-vwo-wingify
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: vwo-hubspot-own
+  label: HubSpot (own)
+  partner: hubspot
+  partner_name: HubSpot (own)
+  category: MARKETING_ANALYTICS
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/vwo
   source: edge
   relationship: platform-app
   status: not-a-workflow
